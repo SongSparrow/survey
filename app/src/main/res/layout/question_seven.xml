@@ -6,6 +6,98 @@
 
     <!--  Start : Your code should be within this block -->
 
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="Question 7"
+        android:textSize="30dp"
+        android:textColor="#000000"
+        />
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txt1"
+        android:layout_marginLeft="50dp"
+        android:text="In Which condition will you buy a new phone ?"
+        android:textSize="20dp"
+        android:layout_marginTop="30dp"
+        android:textColor="#888888"
+        />
+
+    <RadioButton
+        android:id="@+id/rbtd1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt2"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+
+        android:text="When the old phone has been used for a year or
+two.(but it still works)"/>
+    <RadioButton
+        android:id="@+id/rbtd2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rbtd1"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="1dp"
+        android:textStyle="bold"
+        android:text="When the old phone has been used for more than three years.
+(but it still works)"/>
+    <RadioButton
+        android:id="@+id/rbtd3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rbtd2"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="1dp"
+        android:textStyle="bold"
+        android:text="When the old phone breaks down."/>
+    <RadioButton
+        android:id="@+id/rbtd4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rbtd3"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="1dp"
+        android:textStyle="bold"
+        android:text="When a new phone is released."/>
+    <RadioButton
+        android:id="@+id/rbtd5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rbtd4"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="1dp"
+        android:textStyle="bold"
+        android:text="Others."/>
+
+    <Button
+        android:id="@+id/btd1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#008577"
+        android:text="NEXT"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_below="@+id/rbtd5"
+        android:layout_marginTop="50dp"
+        />
+
 
     <!-- END    : Your code should be within this block -->
 

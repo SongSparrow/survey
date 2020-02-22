@@ -5,8 +5,51 @@
     android:orientation="vertical">
 
     <!--  Start : Your code should be within this block -->
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="40dp"
+        android:text="THANK YOU"
+        android:textSize="30dp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txt1"
+        android:layout_marginLeft="40dp"
+        android:text="FOR YOUR ANSWERS!"
+        android:textSize="20dp"
+        android:textColor="#000000"
 
+        />
+    <ImageView
+        android:id="@+id/im1"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/aa"
+        android:layout_below="@+id/txt2"
+        android:layout_marginLeft="30dp"
+        />
 
+    <Button
+        android:layout_below="@+id/im1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#008577"
+        android:text="FINISH"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="30dp"
+android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        />
     <!-- END    : Your code should be within this block -->
 
 </LinearLayout>
