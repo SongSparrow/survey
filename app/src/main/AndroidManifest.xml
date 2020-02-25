@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Finish_surveyActivity"></activity>
-        <activity android:name=".ShowActivity" />
+        <activity android:name=".ReportActivity" />
         <activity android:name=".QtwelveActivity" />
         <activity android:name=".QelevenActivity" />
         <activity android:name=".QtenActivity" />

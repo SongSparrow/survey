@@ -25,7 +25,7 @@ public class QtwelveActivity extends AppCompatActivity {
             String Q12 = rb.getText().toString();
 
 
-            Intent intent = new Intent(this, ShowActivity.class);
+            Intent intent = new Intent(this, ReportActivity.class);
             /////re
             Intent preintent = getIntent();
             String Q1 = preintent.getStringExtra("Q1");
