@@ -95,6 +95,7 @@
         />
 
     <Button
+
         android:layout_below="@+id/rbtn1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -103,8 +104,11 @@
         android:textSize="20dp"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="30dp"
+        android:onClick="click"
 
         />
+
+
 
 
 

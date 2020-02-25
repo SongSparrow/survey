@@ -34,6 +34,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="40dp"
+    android:text=""
     android:layout_marginRight="40dp"
     />
     <Button
@@ -48,6 +49,7 @@
         android:layout_marginRight="30dp"
         android:layout_below="@+id/et1"
         android:layout_marginTop="200dp"
+        android:onClick="click"
         />
     <!-- END    : Your code should be within this block -->
 

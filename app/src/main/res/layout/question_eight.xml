@@ -11,25 +11,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         android:text="Question 8"
-        android:textSize="30dp"
         android:textColor="#000000"
-        />
+        android:textSize="30dp" />
+
     <TextView
         android:id="@+id/txt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_below="@+id/txt1"
+        android:layout_alignParentLeft="true"
         android:layout_marginLeft="50dp"
-        android:text="Which brand od phone will you choose if you are going to buy a new one ?"
-        android:textSize="20dp"
         android:layout_marginTop="30dp"
+        android:text="Which brand od phone will you choose if you are going to buy a new one ?"
         android:textColor="#888888"
-        />
-
+        android:textSize="20dp" />
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg">
     <RadioButton
         android:id="@+id/rbtd1"
         android:layout_width="wrap_content"
@@ -37,9 +39,10 @@
         android:layout_below="@+id/txt2"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="10dp"
-        android:textStyle="bold"
+        android:text="Iphone"
 
-        android:text="Iphone"/>
+        android:textStyle="bold" />
+
     <RadioButton
         android:id="@+id/rbtd2"
         android:layout_width="wrap_content"
@@ -47,8 +50,9 @@
         android:layout_below="@+id/rbtd1"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="1dp"
-        android:textStyle="bold"
-        android:text="Nokia"/>
+        android:text="Nokia"
+        android:textStyle="bold" />
+
     <RadioButton
         android:id="@+id/rbtd3"
         android:layout_width="wrap_content"
@@ -56,8 +60,9 @@
         android:layout_below="@+id/rbtd2"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="1dp"
-        android:textStyle="bold"
-        android:text="Samsung"/>
+        android:text="Samsung"
+        android:textStyle="bold" />
+
     <RadioButton
         android:id="@+id/rbtd4"
         android:layout_width="wrap_content"
@@ -65,8 +70,9 @@
         android:layout_below="@+id/rbtd3"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="1dp"
-        android:textStyle="bold"
-        android:text="MI"/>
+        android:text="MI"
+        android:textStyle="bold" />
+
     <RadioButton
         android:id="@+id/rbtd5"
         android:layout_width="wrap_content"
@@ -74,8 +80,9 @@
         android:layout_below="@+id/rbtd4"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="1dp"
-        android:textStyle="bold"
-        android:text="Lenovo"/>
+        android:text="Lenovo"
+        android:textStyle="bold" />
+
     <RadioButton
         android:id="@+id/rbtd6"
         android:layout_width="wrap_content"
@@ -83,8 +90,9 @@
         android:layout_below="@+id/rbtd5"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="1dp"
-        android:textStyle="bold"
-        android:text="Sony"/>
+        android:text="Sony"
+        android:textStyle="bold" />
+
     <RadioButton
         android:id="@+id/rbtd7"
         android:layout_width="wrap_content"
@@ -92,22 +100,23 @@
         android:layout_below="@+id/rbtd6"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="1dp"
-        android:textStyle="bold"
-        android:text="Others"/>
+        android:text="Others"
+        android:textStyle="bold" />
+    </RadioGroup>
 
     <Button
         android:id="@+id/btd1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/rbtd7"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="30dp"
         android:background="#008577"
         android:text="NEXT"
         android:textSize="20dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_below="@+id/rbtd7"
-        android:layout_marginTop="50dp"
-        />
+        android:onClick="click"/>
 
 
     <!-- END    : Your code should be within this block -->

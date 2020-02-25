@@ -9,6 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Finish_surveyActivity"></activity>
+        <activity android:name=".ShowActivity" />
+        <activity android:name=".QtwelveActivity" />
+        <activity android:name=".QelevenActivity" />
+        <activity android:name=".QtenActivity" />
+        <activity android:name=".QnineActivity" />
+        <activity android:name=".QeightActivity" />
+        <activity android:name=".QsevenActivity" />
+        <activity android:name=".QsixActivity" />
+        <activity android:name=".QfiveActivity" />
+        <activity android:name=".QfourActivity" />
+        <activity android:name=".QthreeActivity" />
+        <activity android:name=".QtwoActivity" />
+        <activity android:name=".QoneActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
