@@ -1,22 +1,52 @@
 package mg.studio.android.survey;
 
+import androidx.annotation.ColorRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 public class QsixActivity extends AppCompatActivity {
     private EditText et;
+    private Button sub;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.question_six);
+        et=findViewById(R.id.et1);
+        sub=findViewById(R.id.btd1);
+        et.addTextChangedListener(
+                new TextWatcher(){
+                    @Override
+                    public  void beforeTextChanged(CharSequence s,int start,int count,int after){}
+
+                    @Override
+                    public void onTextChanged(CharSequence s,int start,int count,int after){
+                        if(et.length()!=0){
+                           // sub.setBackgroundResource(R.drawable.b);
+                            sub.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+
+                            sub.setEnabled(true);
+                        }else{
+                           // sub.setBackgroundResource(R.drawable.a);
+                            sub.setBackgroundColor(getResources().getColor(R.color.colorH));
+                            sub.setEnabled(false);
+                        }
+                    }
+                    @Override
+                    public void afterTextChanged(Editable s){}
+                }
+        );
+
     }
     public void click(View view){
-        et=findViewById(R.id.et1);
+
         if(et.length()!=0) {
         String Q6=et.getText().toString();
 
