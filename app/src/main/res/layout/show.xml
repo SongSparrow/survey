@@ -335,17 +335,34 @@
 
         />
 
-    <Button
 
+    <Button
+        android:id="@+id/btn_save"
         android:layout_below="@+id/txt25"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#008577"
-        android:text="SUBMIT"
+        android:text="SAVE"
         android:textSize="20dp"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="40dp"
+        android:layout_marginBottom="15dp"
+        android:onClick="save"
+
+        />
+
+    <Button
+
+        android:layout_below="@+id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#008577"
+        android:text="NEXT"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="20dp"
         android:onClick="click"
 

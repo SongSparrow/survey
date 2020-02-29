@@ -35,11 +35,27 @@
         android:layout_height="300dp"
         android:background="@drawable/aa"
         android:layout_below="@+id/txt2"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="70dp"
         />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="bottom">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:layout_marginBottom="20dp"
+        >
 
     <Button
-        android:layout_below="@+id/im1"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#008577"
@@ -47,10 +63,11 @@
         android:textSize="20dp"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="30dp"
-android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
+        android:onClick="click"
 
         />
+    </LinearLayout>
     <!-- END    : Your code should be within this block -->
 
 </LinearLayout>

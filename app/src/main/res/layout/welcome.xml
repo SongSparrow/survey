@@ -90,10 +90,24 @@
         android:layout_below="@+id/txt6"
         android:textSize="15dp"
         android:text="I accept these requests."
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="150dp"
         android:layout_centerHorizontal="true"
         />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        >
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+      android:layout_marginBottom="20dp"
+        android:layout_marginRight="30dp"
+        >
     <Button
         android:id="@+id/btn"
         android:layout_below="@+id/rbtn1"
@@ -105,10 +119,11 @@
         android:textSize="20dp"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="30dp"
+
         android:onClick="click"
 
         />
-
+    </LinearLayout>
 
 
 

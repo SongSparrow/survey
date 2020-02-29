@@ -103,7 +103,21 @@
         android:text="Others"
         android:textStyle="bold" />
     </RadioGroup>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="bottom">
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:layout_marginBottom="20dp"
+        >
     <Button
         android:id="@+id/btd1"
         android:layout_width="match_parent"
@@ -119,7 +133,7 @@
         android:textSize="20dp"
         android:onClick="click"/>
 
-
+    </LinearLayout>
     <!-- END    : Your code should be within this block -->
 
 </LinearLayout>
