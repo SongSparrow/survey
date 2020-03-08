@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="mg.studio.android.survey">
-
-
-
+    package="com.example.survey">
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,20 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Finish_surveyActivity"></activity>
+        <activity android:name=".FinishActivity"></activity>
         <activity android:name=".ReportActivity" />
-        <activity android:name=".QtwelveActivity" />
-        <activity android:name=".QelevenActivity" />
-        <activity android:name=".QtenActivity" />
-        <activity android:name=".QnineActivity" />
-        <activity android:name=".QeightActivity" />
-        <activity android:name=".QsevenActivity" />
-        <activity android:name=".QsixActivity" />
-        <activity android:name=".QfiveActivity" />
-        <activity android:name=".QfourActivity" />
-        <activity android:name=".QthreeActivity" />
-        <activity android:name=".QtwoActivity" />
-        <activity android:name=".QoneActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
