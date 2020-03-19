@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
         if (text == null || text.length() == 0) {
             ImageView imgScan;
             imgScan = findViewById(R.id.img_scan);
-            imgScan.setImageResource(R.drawable.sava1);
+            imgScan.setImageResource(R.drawable.save1);
             Toast.makeText(this, R.string.without_data,
                     Toast.LENGTH_SHORT).show();
             return;
