@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 
@@ -366,9 +366,21 @@
         }
       });
     var name = $("#questionnaireName").val();
+if(count==0){
+window.alert("Please input the question!");
+
+return;
+}
+if(name==""){
+window.alert("Please input the ID!");
+
+return;
+}
     var tempdata = {};
     tempdata["id"] = "" + name + "";
     tempdata["len"] = "" + count + "";
+
+
     tempdata["questions"] = content;
     var tempsur = {};
     tempsur["survey"] = tempdata;
