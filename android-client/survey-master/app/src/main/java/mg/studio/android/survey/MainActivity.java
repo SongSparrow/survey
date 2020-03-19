@@ -186,6 +186,9 @@ public class MainActivity extends AppCompatActivity {
         checkInitialPswd();
         // initial question list
         if (text == null || text.length() == 0) {
+            ImageView imgScan;
+            imgScan = findViewById(R.id.img_scan);
+            imgScan.setImageResource(R.drawable.sava1);
             Toast.makeText(this, R.string.without_data,
                     Toast.LENGTH_SHORT).show();
             return;
