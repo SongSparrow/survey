@@ -20,6 +20,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.LongDef;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -29,6 +30,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Vector;
+
 public class MainActivity extends AppCompatActivity {
 
     private CheckBox mCbAccept;
@@ -36,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private JSONObject[] answers;
     static AppCompatActivity mainActivity;
     private String text;
+    private String surveyURL;
     private int qNum = 0; // number of questions
     private int qSeq = 0; // sequence
     private String surveyId;
@@ -70,37 +80,44 @@ public class MainActivity extends AppCompatActivity {
     // scan qr code
     private void scanQRCode() {
         getCameraPermission();
-        IntentIntegrator integrator = new IntentIntegrator(this);
-        integrator.initiateScan();
+        Intent intent=new Intent(MainActivity.this,ScanActivity.class);
+        startActivityForResult(intent,2020);
     }
 
     // get text from qr code
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
                                     @androidx.annotation.Nullable Intent data) {
-        if (requestCode == 0) {
-            super.onActivityResult(requestCode, resultCode, data);
-            if (!Settings.canDrawOverlays(this)) {
-                Toast.makeText(this, "授权失败", Toast.LENGTH_SHORT).show();
-            } else {
-                startService(new Intent(this, PswdService.class));
-                Toast.makeText(this, "授权成功", Toast.LENGTH_SHORT).show();
-            }
-        } else {
-            IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-            if (scanResult != null) {
-                text = scanResult.getContents();
-                Toast.makeText(getApplicationContext(), R.string.get_data, Toast.LENGTH_LONG).show();
-            } else {
-                Toast.makeText(getApplicationContext(), R.string.get_no_data, Toast.LENGTH_LONG).show();
-            }
-            super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case 2020:
+                if(data!=null) {
+                    surveyURL =data.getStringExtra("content");
+                    Log.i("传递成功的数据", "onActivityResult: "+surveyURL);
+                    Toast.makeText(getApplicationContext(), R.string.get_data, Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), R.string.get_no_data, Toast.LENGTH_LONG).show();
+                }
+
+                break;
+
+            case 0:
+                super.onActivityResult(requestCode, resultCode, data);
+                if (!Settings.canDrawOverlays(this)) {
+                    Toast.makeText(this, "授权失败", Toast.LENGTH_SHORT).show();
+                } else {
+                    startService(new Intent(this, PswdService.class));
+                    Toast.makeText(this, "授权成功", Toast.LENGTH_SHORT).show();
+                }
+                break;
         }
+            super.onActivityResult(requestCode, resultCode, data);
     }
 
     // analyse the question text
     @Nullable
     private JSONArray GetQuestions() {
+        getTextContent();
         try {
             if (text == null || text.length() == 0) return null;
             JSONObject json = new JSONObject(text);
@@ -111,6 +128,72 @@ public class MainActivity extends AppCompatActivity {
             return survey.getJSONArray("questions");
         } catch (JSONException je) {
             return null;
+        }
+    }
+    //create a new thread and
+    //get text content from internet
+    private void getTextContent(){
+
+        getInternetPermission();
+
+        Vector<Thread> threadVector=new Vector<Thread>();
+        Thread childThread=new Thread(new Runnable() {
+            @Override
+            public void run() {
+                HttpURLConnection conn=null;
+                BufferedReader reader=null;
+                try{
+                    URL url=new URL(surveyURL);
+                    conn= (HttpURLConnection) url.openConnection();
+                    conn.setRequestMethod("GET");
+                    conn.setConnectTimeout(4000);
+                    conn.setReadTimeout(4000);
+                    InputStream in=conn.getInputStream();
+
+                    reader=new BufferedReader(new InputStreamReader(in));
+
+                    StringBuilder builder=new StringBuilder();
+                    String line;
+                    while ((line=reader.readLine())!=null){
+                        builder.append(line);
+                    }
+                    text=builder.toString();
+                    System.out.println("我的数据："+text);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }finally {
+                    if(reader!=null){
+                        try{
+                            reader.close();
+                        }catch (IOException e){
+                            e.printStackTrace();
+                        }
+                    }if(conn!=null){
+                        conn.disconnect();
+                    }
+                }
+            }
+        });
+        threadVector.add(childThread);
+        childThread.start();
+        for(Thread thread:threadVector){
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    //request Internet
+    private void getInternetPermission() {
+        Log.d("5555555","");
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.INTERNET) !=
+                PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{
+                    Manifest.permission.INTERNET
+            }, 120);
         }
     }
 
@@ -185,7 +268,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClickGo(View view) {
         checkInitialPswd();
         // initial question list
-        if (text == null || text.length() == 0) {
+        if (surveyURL == null || surveyURL.length() == 0) {
             ImageView imgScan;
             imgScan = findViewById(R.id.img_scan);
             imgScan.setImageResource(R.drawable.save1);

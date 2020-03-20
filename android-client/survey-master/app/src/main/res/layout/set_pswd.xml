@@ -36,7 +36,9 @@
         android:hint="@string/pswd"
         android:inputType="numberPassword"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/font_size_middle" />
+        android:textSize="@dimen/font_size_middle"
+        android:maxLength="4"
+        android:backgroundTint="@color/colorPrimary"/>
 
     <EditText
         android:id="@+id/cf_pswd"
@@ -51,7 +53,9 @@
         android:hint="@string/cpswd"
         android:inputType="numberPassword"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/font_size_middle" />
+        android:textSize="@dimen/font_size_middle"
+        android:maxLength="4"
+        android:backgroundTint="@color/colorPrimary"/>
 
     <Space
         android:layout_width="match_parent"

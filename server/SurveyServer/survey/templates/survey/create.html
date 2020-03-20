@@ -1,12 +1,12 @@
-﻿<!DOCTYPE html>
+﻿{%load static%}
+<!DOCTYPE html>
 <html>
-
 
 <head>
   <title></title>
   <meta charset="utf-8" />
-  <script src="jquery-1.11.3.js"></script>
-  <script src="KeeeX_qrcode.js"></script>
+  <script src="{% static 'jquery-1.11.3.js' %}"></script>
+  <script src="{% static 'KeeeX_qrcode.js' %}"></script>
   <style type="text/css">
     .menu {
       float: left;
@@ -197,10 +197,7 @@
     <div class="container">
       <div class="head">
         <ul>
-          <li>
-            ID：
-            <input type="text" id="questionnaireName" />
-          </li>
+         
           <li>
             <button id="btnSubmit">submit</button>
           </li>
@@ -371,13 +368,9 @@ window.alert("Please input the question!");
 
 return;
 }
-if(name==""){
-window.alert("Please input the ID!");
 
-return;
-}
     var tempdata = {};
-    tempdata["id"] = "" + name + "";
+    tempdata["id"] = "" + "" + "";
     tempdata["len"] = "" + count + "";
 
 
@@ -391,10 +384,41 @@ return;
     ////////////////////////////////这里打印了JSON字符串///////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////
 
-    console.log(template);
-    ///
-    // template="1234"
-    showqrcode(template)
+   //console.log(template);
+var formdata=new FormData();
+//可以通过append()方法来追加数据
+formdata.append("content",template);
+//通过get方法对值进行读取
+
+var data11={
+
+		'content':template
+	}
+console.log(data11);
+
+
+console.log(formdata);
+
+console.log(formdata.getAll("content"));
+//////////////////////////////////////////////提交
+
+ //console.info(a); 
+ $.ajax({             
+   url : "http://deepworm.xyz:8000/survey/savesurvey",        
+        type : "POST",             
+data:data11,          
+    success : function(data) {                   
+ console.info("succes"+data);      
+showqrcode(data)     ;  
+   },             
+   error : function(data) {               
+ console.warn("warn"+data);          
+      }         
+   });         
+  // return false;
+
+
+    //showqrcode(template)
     ///
 
     /*json格式示例：

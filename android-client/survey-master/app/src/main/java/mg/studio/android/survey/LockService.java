@@ -3,6 +3,7 @@ package mg.studio.android.survey;
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
@@ -39,7 +40,11 @@ public class LockService extends Service {
         if (ReportActivity.bStart) return;
         wManager = (WindowManager)getSystemService(WINDOW_SERVICE);
         lParams = new WindowManager.LayoutParams();
-        lParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        if(Build.VERSION.SDK_INT<Build.VERSION_CODES.O) {
+            lParams.type=WindowManager.LayoutParams.TYPE_PHONE;
+        }else{
+            lParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        }
 //        lParams.format = PixelFormat.RGBA_8888;
 //        lParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
         lParams.width = WindowManager.LayoutParams.MATCH_PARENT;

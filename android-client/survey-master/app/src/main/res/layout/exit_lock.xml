@@ -37,7 +37,9 @@
         android:hint="@string/pswd"
         android:inputType="numberPassword"
         android:textColor="@android:color/black"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:maxLength="4"
+        android:backgroundTint="@color/colorPrimary"/>
 
     <Space
         android:layout_width="match_parent"

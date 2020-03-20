@@ -3,6 +3,7 @@ package mg.studio.android.survey;
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
@@ -32,7 +33,12 @@ public class PswdService extends Service {
     private void setInitialPassword() {
         mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
         mLayoutParams = new WindowManager.LayoutParams();
-        mLayoutParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        if(Build.VERSION.SDK_INT<Build.VERSION_CODES.O) {
+            mLayoutParams.type=WindowManager.LayoutParams.TYPE_PHONE;
+        }else{
+            mLayoutParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        }
+       // mLayoutParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
 //        mLayoutParams.format = PixelFormat.RGBA_8888;
 //        mLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
 //                | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
