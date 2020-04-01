@@ -38,13 +38,8 @@ public class PswdService extends Service {
         }else{
             mLayoutParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
         }
-       // mLayoutParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
-//        mLayoutParams.format = PixelFormat.RGBA_8888;
-//        mLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
-//                | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
         mLayoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
         mLayoutParams.height = WindowManager.LayoutParams.MATCH_PARENT;
-//        mLayoutParams.flags = WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM;
         mLayoutParams.x = 0;
         mLayoutParams.y = 0;
         mView = LayoutInflater.from(this).inflate(R.layout.set_pswd, null);
@@ -54,35 +49,18 @@ public class PswdService extends Service {
             public void onClick(View v) {
                 String pswd = ((EditText)mView.findViewById(R.id.fill_pswd)).getText().toString();
                 String cpswd = ((EditText)mView.findViewById(R.id.cf_pswd)).getText().toString();
+                TextView pswdTitle = mView.findViewById(R.id.pswd_title);
                 if(pswd.length()==0){
-                    handler = new Handler(Looper.getMainLooper());
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(getApplicationContext(),
-                                    R.string.empty_pswd, Toast.LENGTH_LONG).show();
-                        }
-                    });
+                    pswdTitle.setText(R.string.empty_pswd);
+                    pswdTitle.setTextColor(getColor(R.color.red));
                     return;
                 }else if(cpswd.length()==0){
-                    handler = new Handler(Looper.getMainLooper());
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(getApplicationContext(),
-                                    R.string.empty_cf_pswd, Toast.LENGTH_LONG).show();
-                        }
-                    });
+                    pswdTitle.setText(R.string.empty_cf_pswd);
+                    pswdTitle.setTextColor(getColor(R.color.red));
                     return;
                 }else if (!pswd.equals(cpswd)){
-                    handler = new Handler(Looper.getMainLooper());
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(getApplicationContext(), R.string.cf_fail,
-                                    Toast.LENGTH_LONG).show();
-                        }
-                    });
+                    pswdTitle.setText(R.string.cf_fail);
+                    pswdTitle.setTextColor(getColor(R.color.red));
                     return;
                 }
                 SharedPreferences sp = getSharedPreferences("pswd",MODE_PRIVATE);
