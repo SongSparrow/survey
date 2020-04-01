@@ -24,3 +24,7 @@ This is an app for questionnaire. It is divided into client and server. The user
 - ACCESS_COARSE_LOCATION
 - READ_PHONE_STATE
 - CAMERA
+
+# Server
+
+http://deepworm.xyz:8000/survey/create
