@@ -4,7 +4,6 @@ import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
-import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.view.LayoutInflater;
@@ -45,11 +44,8 @@ public class LockService extends Service {
         }else{
             lParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
         }
-//        lParams.format = PixelFormat.RGBA_8888;
-//        lParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
         lParams.width = WindowManager.LayoutParams.MATCH_PARENT;
         lParams.height = WindowManager.LayoutParams.MATCH_PARENT;
-//        lParams.flags = WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM;
         lParams.x = 0;
         lParams.y = 0;
         view = LayoutInflater.from(this).inflate(R.layout.exit_lock, null);
@@ -66,13 +62,9 @@ public class LockService extends Service {
                 if (password.equals(sPswd)){
                     onDestroy();
                 }else{
-                    handler=new Handler(Looper.getMainLooper());
-                    handler.post(new Runnable(){
-                        public void run(){
-                            Toast.makeText(getApplicationContext(), "Wrong Password",
-                                    Toast.LENGTH_LONG).show();
-                        }
-                    });
+                   TextView unlockTitle = (TextView)view.findViewById(R.id.unlock_title);
+                    unlockTitle.setTextColor(getColor(R.color.red));
+                    unlockTitle.setText(R.string.wrong_pswd);
                 }
             }
         });
