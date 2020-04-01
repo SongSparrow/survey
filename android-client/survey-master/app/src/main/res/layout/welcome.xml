@@ -96,11 +96,11 @@
 
     <ImageView
         android:id="@+id/img_scan"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="@dimen/margin_30dp"
-        android:layout_marginTop="@dimen/margin_30dp"
+        android:layout_marginBottom="@dimen/margin_20dp"
+        android:layout_marginTop="@dimen/margin_20dp"
         android:contentDescription="@string/scan"
         android:src="@drawable/scan" />
 
