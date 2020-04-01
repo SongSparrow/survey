@@ -120,7 +120,7 @@
         android:layout_marginTop="@dimen/margin_20dp"
         android:layout_marginRight="@dimen/margin_20dp"
         android:layout_marginBottom="@dimen/margin_30dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/button"
         android:onClick="onClickGo"
         android:text="@string/btn_go"
         android:textSize="@dimen/font_size_middle" />
