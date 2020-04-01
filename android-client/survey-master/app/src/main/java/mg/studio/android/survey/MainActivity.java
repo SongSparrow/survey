@@ -80,8 +80,12 @@ public class MainActivity extends AppCompatActivity {
     // scan qr code
     private void scanQRCode() {
         getCameraPermission();
-        Intent intent=new Intent(MainActivity.this,ScanActivity.class);
-        startActivityForResult(intent,2020);
+       if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.CAMERA) ==
+                PackageManager.PERMISSION_GRANTED) {
+            Intent intent=new Intent(MainActivity.this,ScanActivity.class);
+            startActivityForResult(intent,2020);
+        }
     }
 
     // get text from qr code
